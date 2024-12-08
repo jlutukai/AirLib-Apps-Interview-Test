@@ -17,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -50,12 +51,12 @@ fun DashBoardPage(
     val medicines by viewModel.getMedicines().collectAsStateWithLifecycle(emptyList())
     val userDetails by viewModel.getCurrentUserDetails().collectAsStateWithLifecycle("")
 
-    var greetingString = rememberSaveable {
-        ""
+    val greetingString = rememberSaveable {
+       mutableStateOf( "")
     }
     LaunchedEffect(userDetails) {
         val greeting: GetGreeting = GetGreetingImpl(calendar = Calendar.getInstance())
-        greetingString = "${greeting.getGreeting()}, $userDetails"
+        greetingString.value = "${greeting.getGreeting()}, $userDetails"
     }
 
 
@@ -80,7 +81,7 @@ fun DashBoardPage(
 
     DashBoardContent(
         medicines = medicines,
-        greetingString = greetingString,
+        greetingString = greetingString.value,
         onNavigate = onNavigate
     )
 
