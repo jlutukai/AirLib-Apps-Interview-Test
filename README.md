@@ -64,3 +64,7 @@ The presentation layer contains components involved in rendering information to 
 | :-----------------:| :------------------------:|
 | <img src="/screenShots/drugs_list.jpeg" width="260">  | <img src="/screenShots/drug_detail.jpeg" width="260">         |
 
+## Download the Latest Release
+
+[Download the apk here](https://github.com/jlutukai/AirLib-Apps-Interview-Test/releases/tag/v1.0.0-alpha/app-release.apk)
+
