@@ -9,7 +9,7 @@ plugins {
 val properties = Properties().apply {
     load(project.rootProject.file("local.properties").inputStream())
 }
-val BASE_URL: String = properties.getProperty("BASE_URL")
+//val BASE_URL: String = properties.getProperty("BASE_URL")
 //val SENTRY_DSN = properties.getProperty("SENTRY_DSN")
 android {
     namespace = "com.airlibs.data"
@@ -21,11 +21,11 @@ android {
     }
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", BASE_URL)
+            buildConfigField("String", "BASE_URL", "\"https://run.mocky.io\"")
 //            buildConfigField("String", "SENTRY_DSN", SENTRY_DSN)
         }
         release {
-            buildConfigField("String", "BASE_URL", BASE_URL)
+            buildConfigField("String", "BASE_URL", "\"https://run.mocky.io\"")
 //            buildConfigField("String", "SENTRY_DSN", SENTRY_DSN)
         }
     }
